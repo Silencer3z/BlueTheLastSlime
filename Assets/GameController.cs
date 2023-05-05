@@ -1,10 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class GameController : MonoBehaviour
 {
+    [SerializeField] private float playerHP = 3f;
     private float horizontal;
    [SerializeField] private float speed = 8f;
     private float jumpingPower = 16f;
@@ -29,6 +31,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Flip();
+
+        if (playerHP == 0) 
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void FixedUpdate()
@@ -49,6 +56,14 @@ public class PlayerMovement : MonoBehaviour
             Vector3 localScale = transform.localScale;
             localScale.x *= -1f;
             transform.localScale = localScale;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            playerHP = playerHP - 1;
         }
     }
 }
