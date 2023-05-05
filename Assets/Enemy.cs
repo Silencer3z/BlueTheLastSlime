@@ -57,33 +57,12 @@ public class Enemy : MonoBehaviour
         Gizmos.DrawWireSphere(pointB.transform.position,0.5f);
         Gizmos.DrawLine(pointA.transform.position,pointB.transform.position);
     }
-    /*private float horizontal;
-    [SerializeField] private float speed;
-    [SerializeField] private Vector3[] positions;
-    private bool isFacingRight = true;
-    private int index;
 
-        // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, positions[index], Time.deltaTime * speed);
-        if (transform.position == positions[index])
+        if (other.CompareTag("bullet"))
         {
-            if (index == positions.Length -1)
-            {
-                index = 0;
-            }
-            else
-            {
-                index++;
-            }
+            Destroy(this.gameObject);
         }
-    }*/
-
+    }
 }
