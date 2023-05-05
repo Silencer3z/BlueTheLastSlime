@@ -16,6 +16,10 @@ public class GameController : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
+    [SerializeField] private GameObject restartGame;
+    
+    
+
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
@@ -34,7 +38,9 @@ public class GameController : MonoBehaviour
 
         if (playerHP == 0) 
         {
+            restartGame.SetActive(true);
             Destroy(this.gameObject);
+            
         }
     }
 
