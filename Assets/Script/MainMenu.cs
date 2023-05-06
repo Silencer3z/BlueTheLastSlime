@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    
     public void ClickToStart()
     {
         Debug.Log("Start Game!");
@@ -25,6 +26,7 @@ public class MainMenu : MonoBehaviour
 
     public void ClickToBack()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
 }

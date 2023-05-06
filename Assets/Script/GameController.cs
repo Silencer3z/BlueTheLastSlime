@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        
+        Time.timeScale = 1f;
     }
 
     void Update()
@@ -57,8 +57,9 @@ public class GameController : MonoBehaviour
 
         Flip();
 
-        if (playerHP == 0) 
+        if (playerHP == 0)
         {
+            Time.timeScale = 0f;
             restartGame.SetActive(true);
             uiCanvas.SetActive(false);
             deathCam.SetActive(true);
@@ -67,6 +68,7 @@ public class GameController : MonoBehaviour
         }
         if (enemy.Length == 0)
         {
+            Time.timeScale = 0f;
             bossGauge.SetActive(false);
             uiCanvas.SetActive(false);
             winCanvas.SetActive(true);

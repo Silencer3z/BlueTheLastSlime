@@ -53,6 +53,7 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -65,7 +66,7 @@ public class PauseMenu : MonoBehaviour
     public void Restart()
     {
         restartUI.SetActive(false);
-        
-        Application.LoadLevel(Application.loadedLevel);
+
+        SceneManager.LoadScene("SampleScene");
     }
 }
