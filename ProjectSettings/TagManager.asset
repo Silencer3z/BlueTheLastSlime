@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - bullet
+  - Border
+  - Heal
+  - Boss
   layers:
   - Default
   - TransparentFX

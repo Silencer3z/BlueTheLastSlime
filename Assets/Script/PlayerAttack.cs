@@ -21,7 +21,7 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //get mouse clink position
+        //get mouse click position
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -29,8 +29,7 @@ public class PlayerAttack : MonoBehaviour
 
             if (hit2D.collider != null)
             {
-                //show enemy at click point
-               // enemy.transform.position = new Vector2(hit2D.point.x, hit2D.point.y);
+                
                 Debug.Log("Hit Point = " + hit2D.point);
                 
                 //fire bullet using project velocity

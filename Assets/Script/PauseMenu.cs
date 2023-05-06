@@ -34,7 +34,7 @@ public class PauseMenu : MonoBehaviour
             
         }
     }
-
+    
     public void Resume()
     {
         scoreUI.SetActive(true);

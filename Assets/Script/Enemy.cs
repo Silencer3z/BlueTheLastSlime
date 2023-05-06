@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.U2D.Path;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class Enemy : MonoBehaviour
 {
-
+    [SerializeField] private GameObject enemyPrefab;
     public GameObject pointA;
     public GameObject pointB;
    [SerializeField] private Rigidbody2D rb;
@@ -21,6 +22,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        
         Vector2 point = currentPoint.position - transform.position;
         if (currentPoint == pointB.transform)
         {
@@ -58,11 +60,8 @@ public class Enemy : MonoBehaviour
         Gizmos.DrawLine(pointA.transform.position,pointB.transform.position);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnDestroy()
     {
-        if (other.CompareTag("bullet"))
-        {
-            Destroy(this.gameObject);
-        }
+        Destroy(enemyPrefab);
     }
 }
